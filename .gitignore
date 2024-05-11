@@ -25,3 +25,5 @@
 /DEBUG/
 
 *storybook.log
+
+.storybook/preview-head.html
