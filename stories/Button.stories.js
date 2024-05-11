@@ -6,7 +6,7 @@ import { linkTo } from '@storybook/addon-links';
 export default {
   title: 'Example/Button',
   render: (args) => ({
-    template: hbs`<button {{on "click" this.onClick}}>{{this.label}}</button>`,
+    template: hbs`<Button {{on "click" this.onClick}}>{{this.label}}</Button>`,
     context: args,
   }),
   argTypes: {
