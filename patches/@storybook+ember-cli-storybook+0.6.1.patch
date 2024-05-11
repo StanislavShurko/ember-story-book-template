@@ -1,0 +1,27 @@
+diff --git a/node_modules/@storybook/ember-cli-storybook/lib/util.js b/node_modules/@storybook/ember-cli-storybook/lib/util.js
+index 4d831bd..dc1edcf 100644
+--- a/node_modules/@storybook/ember-cli-storybook/lib/util.js
++++ b/node_modules/@storybook/ember-cli-storybook/lib/util.js
+@@ -130,14 +130,15 @@ function generatePreviewHead(parsedConfig) {
+             (function() {
+               var srcUrl = null;
+               var host = location.hostname || 'localhost';
+-              var defaultPort = location.protocol === 'https:' ? 443 : 80;
+-              var port = ${process.env.EMBER_CLI_INJECT_LIVE_RELOAD_PORT};
+-              var path = '';
+-              var prefixURL = '';
++              var useCustomPort = false || location.port !== 4200;
++              var defaultPort = location.port || (location.protocol === 'https:' ? 443 : 80);
++              var port = useCustomPort ? 4200 : defaultPort;
++              var path = '&path=_lr/livereload';
++              var prefixURL = useCustomPort ? (location.protocol || 'http:') + '//' + host + ':' + 4200 : '';
+               var src = srcUrl || prefixURL + '/_lr/livereload.js?port=' + port + '&host=' + host + path;
+-              var script = document.createElement('script');
+-              script.type = 'text/javascript';
+-              script.src = location.protocol + '//' + host + ':${process.env.EMBER_CLI_INJECT_LIVE_RELOAD_PORT}' + src;
++              var script    = document.createElement('script');
++              script.type   = 'text/javascript';
++              script.src    = src;
+               document.getElementsByTagName('head')[0].appendChild(script);
+             }());
+           </script>`);
