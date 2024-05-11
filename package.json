@@ -12,6 +12,7 @@
   },
   "scripts": {
     "build": "ember build --environment=production",
+    "dev": "concurrently --raw \"pnpm:start\" \"pnpm:storybook\"",
     "lint": "concurrently \"npm:lint:*(!fix)\" --names \"lint:\"",
     "lint:css": "stylelint \"**/*.css\"",
     "lint:css:fix": "concurrently \"npm:lint:css -- --fix\"",
@@ -23,6 +24,7 @@
     "start": "ember serve",
     "test": "concurrently \"npm:lint\" \"npm:test:*\" --names \"lint,test:\"",
     "test:ember": "ember test",
+    "prestorybook": "wait-on http://localhost:4200",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
@@ -79,6 +81,7 @@
     "stylelint-config-standard": "^34.0.0",
     "stylelint-prettier": "^4.1.0",
     "tracked-built-ins": "^3.3.0",
+    "wait-on": "^7.2.0",
     "webpack": "^5.91.0"
   },
   "engines": {
