@@ -1,7 +1,7 @@
 import {
-  setupApplicationTest as upstreamSetupApplicationTest,
-  setupRenderingTest as upstreamSetupRenderingTest,
-  setupTest as upstreamSetupTest,
+  setupApplicationTest,
+  setupRenderingTest,
+  setupTest,
 } from 'ember-qunit';
 
 // This file exists to provide wrappers around ember-qunit's
@@ -23,7 +23,7 @@ function setupApplicationTest(hooks, options) {
   // This is also a good place to call test setup functions coming
   // from other addons:
   //
-  // setupIntl(hooks); // ember-intl
+  // setupIntl(hooks, 'en-us'); // ember-intl
   // setupMirage(hooks); // ember-cli-mirage
 }
 

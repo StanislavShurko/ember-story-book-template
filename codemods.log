@@ -1,0 +1,1 @@
+2025-04-24T14:53:56.261Z [warn] WARNING: {{page-title}} was not converted as it has positional parameters which can't be automatically converted. Source: app/templates/application.hbs
